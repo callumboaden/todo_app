@@ -1,0 +1,224 @@
+/* General Styles */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body 
+{
+    /* Styles to be applied for a dark theme
+    background: #000;
+    color: #FFF; */
+    background: rgb(245, 245, 245);
+}
+
+ul 
+{
+    list-style-type: none;
+}
+
+button 
+{
+    background: none;
+    border: none;
+
+    &:focus 
+    {
+        outline: none;
+    }
+
+    &:hover 
+    {
+        cursor: pointer;
+    }
+}
+
+input {
+    background: none;
+    border: 0;
+
+    &:focus 
+    {
+        outline: none;
+    }
+}
+
+
+/* Layout Styles */
+.container 
+{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 2% auto;
+
+    .header 
+    {
+        display: flex;
+        justify-content: space-between;
+
+        h1 
+        {
+            font-size: 48px;
+        }
+    }
+    
+    .todos 
+    {
+        margin: 5% 0;
+
+        .todo 
+        {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 25px;
+            background: #FFF;
+            /* border: 1px solid rgb(225, 225, 225); */
+            box-shadow: 4px 4px 20px rgba(220, 220, 220, .55);
+            border-radius: 25px;
+            transition: 1s;
+            opacity: 1;
+
+            .buttons
+            {
+                width: 20%;
+                display: flex;
+                justify-content: flex-end;
+                align-self: baseline;
+
+                i 
+                {
+                   padding: 0 10px;
+                }
+            }
+
+            &:hover
+            {
+                box-shadow: 4px 4px 20px rgba(200, 200, 200, .9);
+                cursor: pointer;
+            }
+
+            &.fadeout 
+            {
+                opacity: 0;
+            }
+
+            .todo__date--added 
+            {
+                width: 100%;
+                font-size: 12px;  
+                margin-bottom: 20px;  
+                color: rgb(150, 150, 150);
+            }
+            
+            .todo__title,
+            .edit__todo--input
+            {
+                width: 80%;
+                flex-wrap: nowrap;
+                font-weight: normal;
+                align-self: baseline;
+            }
+
+            .todo__title,
+            .edit__todo--input
+            {
+                font-size: 24px;
+                font-weight: normal;
+            }
+            .edit__todo--input
+            {
+                color: #CCC;
+            }
+        }
+    }
+}
+
+/* Button Styles */
+.btn__add--todo,
+.btn__close
+{
+    /* color: #00e6ac; */ // Dark theme style
+    font-size: 42px;
+}
+
+.btn__close 
+{
+    color: #FFF;
+    align-self: flex-end;
+}
+
+.btn__remove--todo,
+.btn__edit--todo,
+.btn__save--todo
+{
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+    transition: .25s;
+    padding: 0 10px;    
+    /* justify-content: flex-end; */
+
+    &:hover 
+    {
+        color: #000;
+    }
+}
+
+
+
+/* Add todo form */
+.add__todo__form 
+{
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+    width: 100%;
+    transition: .5s;
+    height: 0;
+
+    &.active 
+    {
+        top: 0;
+        height: 100vh;
+    }
+
+    #todo__input
+    {
+
+        border-bottom: 2px solid #666;
+        transition: .25s;
+        color: #FFF;
+        padding-bottom: 4px;
+        margin-bottom: 40px;
+
+        &:focus 
+        {
+            border-bottom: 2px solid #FFF;
+        }
+    }
+
+    .add__todo--input 
+    {
+        border: 1px solid #666;
+        align-self: flex-end;
+        display: inline-block;
+        padding: 10px 0;
+        width: 200px;
+        color: #666;
+        
+        &.active 
+        {
+            background: #FFF;
+            border: 1px solid #666;
+            color: #666;
+        }
+    }
+}
+
+
+
