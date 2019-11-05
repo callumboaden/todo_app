@@ -3,6 +3,7 @@ const addTodoForm = document.querySelector('.add__todo__form');
 const todoInput = document.querySelector('#todo__input');
 const todoInputBtn = document.querySelector('.add__todo--input');
 const todoList = document.querySelector('.todos');
+const alert = document.querySelector('.alert');
 
 addTodoBtn.addEventListener('click', () => {
     addTodoForm.classList.add('active');
@@ -15,7 +16,7 @@ addTodoForm.addEventListener('click', e => {
         addTodoForm.classList.remove('active');
         store();
     }
-    
+
 });
 
 todoInput.addEventListener('keydown', e => {
@@ -41,6 +42,7 @@ todoInput.addEventListener('keydown', e => {
     } else {
         todoInputBtn.classList.remove('active');
     }
+ 
 });
 
 todoInputBtn.addEventListener('click', e => {
@@ -80,6 +82,7 @@ todoList.addEventListener('click', e => {
         saveTodo(todo);
         store();
     }
+
 });
 
 todoList.addEventListener('keypress', e => {
@@ -90,6 +93,7 @@ todoList.addEventListener('keypress', e => {
         saveTodo(todo);
         store();
     }
+
 });
 
 getTodos();
@@ -154,12 +158,9 @@ function store() {
 
 function getTodos() {
     const storedTodos = window.localStorage.myTodos;
+
     if (!storedTodos) {
-        todoList.innerHTML = `
-            <div>
-                <h3>You have no saved todos!</h3>
-            </div>
-        `;
+        todoList.innerHTML = '';
     } else {
         todoList.innerHTML = storedTodos;
     }
