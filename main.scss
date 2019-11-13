@@ -83,6 +83,16 @@ input {
             transition: 1s;
             opacity: 1;
 
+            &.checked 
+            {
+                opacity: .4;
+            }
+
+            &.checked .todo__title 
+            {
+                text-decoration: line-through;
+            }
+
             .buttons
             {
                 width: 20%;
@@ -139,11 +149,29 @@ input {
 }
 
 /* Button Styles */
-.btn__add--todo,
+.btn__add--todo
+{
+    background: #000;
+    color: #FFF;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    align-self: center;
+}
+.btn__add--todo i
+{
+    margin-right: 8px;
+    font-size: 28px;
+}
+.btn__add--todo span
+{
+    position: relative;
+    top: -4px;
+}
 .btn__close
 {
     /* color: #00e6ac; */ // Dark theme style
-    font-size: 42px;
+    font-size: 32px;
 }
 
 .btn__close 
