@@ -23,7 +23,6 @@ todoInput.addEventListener('keydown', e => {
     const title = todoInput.value;
     const date = getDate();
 
-
     const todo = {
         title: title,
         date: date
@@ -71,7 +70,6 @@ todoList.addEventListener('click', e => {
     // delete todo
     if (action === 'remove') {
         removeTodo(target);
-        store();
     }
 
     if (action === 'edit') {
@@ -80,8 +78,13 @@ todoList.addEventListener('click', e => {
 
     if (action === 'save') {
         saveTodo(todo);
-        store();
     }
+
+    if (action === 'check') {
+        checkTodo(todo);
+    }
+
+    store();
 
 });
 
@@ -107,6 +110,7 @@ function addTodo(todo) {
             <div class="buttons">
                 <i class="fa fa-trash" class="btn btn__remove--todo" data-action="remove"></i>
                 <i class="fa fa-edit" class="btn btn__edit--todo" data-action="edit"></i>
+                <i class="fa fa-check class="btn btn__check--todo" data-action="check"></i>
             </div>
         </li>
     `;
@@ -124,6 +128,7 @@ function editTodo(todo) {
         <div class="buttons">
             <i class="fa fa-trash" class="btn btn__remove--todo" data-action="remove"></i>
             <i class="fa fa-save" class="btn btn__save--todo" data-action="save"></i>
+            <i class="fa fa-check class="btn btn__check--todo" data-action="check"></i>
         </div>
     `;
     
@@ -151,7 +156,13 @@ function saveTodo(todo) {
     todo.insertAdjacentHTML('beforeend', markup);
 }
 
+function toggleCompleted(todo) {
+    console.log(todo);
+}
 
+function checkTodo(todo) {
+    todo.classList.toggle('checked');
+}
 function store() {
     window.localStorage.myTodos = todoList.innerHTML;
 }
@@ -169,7 +180,7 @@ function getTodos() {
 function getDate() {
     const t = new Date();
     const d = t.getDate();
-    const m = t.getMonth();
+    const m = t.getMonth() + 1;
     const y = t.getFullYear();
 
     return `${d}/${m}/${y}`;
