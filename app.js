@@ -149,6 +149,7 @@ function saveTodo(todo) {
         <div class="buttons">
             <i class="fa fa-trash" class="btn btn__remove--todo" data-action="remove"></i>
             <i class="fa fa-edit" class="btn btn__edit--todo" data-action="edit"></i>
+            <i class="fa fa-check class="btn btn__check--todo" data-action="check"></i>
         </div>
     `;
 
